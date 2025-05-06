@@ -139,15 +139,15 @@ def story_delete(id):
     return redirect('/')
 
 
-@app.route('/read',  methods=['GET', 'POST'])
+@app.route('/post/<int:id>',  methods=['GET'])
 @login_required
-def read_story():
+def read_story(id):
     db_sess = db_session.create_session()
-    if current_user.is_authenticated:
-        story = db_sess.query(Story).filter(
-            (Story.user == current_user) | (Story.is_private != True))
-    else:
-        story = db_sess.query(Story).filter(Story.is_private != True)
+    story = db_sess.query(Story).filter(Story.id == id,
+                                         Story.user == current_user
+                                         ).first()
+    if not story:
+        abort(404)
     return render_template("read.html", story=story)
 
 
