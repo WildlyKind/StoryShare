@@ -22,3 +22,5 @@ Story Share — уникальная платформа, где каждый м�
 В проете были использованы sqlalchemy, flask, datetime, оформление с помощью html, подключение стилей с помощью css.
 
 https://my.visme.co/view/y40wq6pz-foreign-language-thesis-presentation
+
+https://natanata.pythonanywhere.com/
